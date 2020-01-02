@@ -1,0 +1,4 @@
+.idea/
+cogs/__pycache__
+logging_files/__pycache__
+utls/__pycache__
