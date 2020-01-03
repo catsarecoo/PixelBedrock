@@ -1,4 +1,5 @@
-.idea/
+.idea
+.vscode
 cogs/__pycache__
 logging_files/__pycache__
-utls/__pycache__
+utils/__pycache__
