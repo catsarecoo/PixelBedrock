@@ -56,10 +56,9 @@ class Utility(commands.Cog):
 
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
-                title="★ PixelBe Server Status"
+                title="★ PixelBE Server Status"
             )
-            embed.add_field(name="⇁ IP Address", inline=True, value=f"```{server}```")
-            embed.add_field(name="⇁ Server Port", inline=True, value=f"```{port}```")
+            embed.add_field(name="⇁ IP Address", inline=True, value=f"```{server}:{port}```")
             embed.add_field(name="⇁ Amount Of Players", inline=True,
                             value=f"```{len(motd.players.names)}/{motd.players.max}```")
             embed.add_field(name="⇁ Main Map", inline=True, value=f"```{motd.map}```")
@@ -98,7 +97,7 @@ class Utility(commands.Cog):
             embed_error = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
                 title="★ Server Timeout",
-                description="⇁ PixelBe is offline!"
+                description="⇁ PixelBE is offline!"
             )
             await ctx.send(embed=embed_error)
 
