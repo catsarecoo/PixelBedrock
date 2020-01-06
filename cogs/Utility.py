@@ -56,10 +56,9 @@ class Utility(commands.Cog):
 
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
-                title="★ PixelBe Server Status"
+                title="★ PixelBE Server Status"
             )
-            embed.add_field(name="⇁ IP Address", inline=True, value=f"```{server}```")
-            embed.add_field(name="⇁ Server Port", inline=True, value=f"```{port}```")
+            embed.add_field(name="⇁ IP Address", inline=True, value=f"```{server}:{port}```")
             embed.add_field(name="⇁ Amount Of Players", inline=True,
                             value=f"```{len(motd.players.names)}/{motd.players.max}```")
             embed.add_field(name="⇁ Main Map", inline=True, value=f"```{motd.map}```")
@@ -79,17 +78,6 @@ class Utility(commands.Cog):
             else:
                 embed.add_field(name="⇁ Player Names", inline=False,
                                 value='```' + '' + ', '.join(motd.players.names) + ', '[:-0] + '```')
-            if not len(plugins_string):
-                embed.add_field(name="⇁ Server Plugins", inline=False, value="```No Plugin Information!```")
-            elif len(plugins_string) > 1024:
-                plugins_string = plugins_string[:1018]
-                plugins_string, _, _ = plugins_string.rpartition(', ')
-                plugins_string = '```' + plugins_string + ' ...```'
-                embed.add_field(name="⇁ Server Plugins", inline=False, value=plugins_string)
-            else:
-                embed.add_field(name="⇁ Server Plugins", inline=False,
-                                value='```' + '' + ', '.join(motd.software.plugins) + ', '[:-0] + '```')
-
             await ctx.send(embed=embed)
 
             logger.info(f"Utility | Sent Server: {ctx.author}")
@@ -98,7 +86,7 @@ class Utility(commands.Cog):
             embed_error = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
                 title="★ Server Timeout",
-                description="⇁ PixelBe is offline!"
+                description="⇁ PixelBE is offline!"
             )
             await ctx.send(embed=embed_error)
 
