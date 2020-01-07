@@ -83,7 +83,7 @@ class Information(commands.Cog):
         embed.set_thumbnail(url=picture)
 
         information = "`b!commands`, `b!about`"
-        utility = "`b!uptime`, `b!server`, `b!suggest`"
+        utility = "`b!uptime`, `b!server`, `b!suggest`, `b!newsletter`"
 
         embed.add_field(name="⇁ Information Commands", inline=False, value=information)
         embed.add_field(name="⇁ Utility Commands", inline=False, value=utility)

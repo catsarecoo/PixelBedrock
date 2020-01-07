@@ -52,7 +52,6 @@ class Utility(commands.Cog):
             srv = MinecraftServer(f"{server}", int(port))
             motd = srv.query()
             players_string = ', '.join(str(p) for p in motd.players.names)
-            plugins_string = ', '.join(str(l) for l in motd.software.plugins)
 
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
@@ -61,7 +60,7 @@ class Utility(commands.Cog):
             embed.add_field(name="⇁ IP Address", inline=True, value=f"```{server}:{port}```")
             embed.add_field(name="⇁ Amount Of Players", inline=True,
                             value=f"```{len(motd.players.names)}/{motd.players.max}```")
-            embed.add_field(name="⇁ Main Map", inline=True, value=f"```{motd.map}```")
+            embed.add_field(name="⇁ Main Map", inline=False, value=f"```{motd.map}```")
             embed.add_field(name="⇁ Server Software", inline=True, value=f"```{motd.software.brand}```")
             embed.add_field(name="⇁ Supported Version(s)", inline=False, value=f"```{motd.software.version}```")
             embed.add_field(name="⇁ MOTD", inline=False, value=f"```{motd_format(motd.motd, ['Â', '§', 'b', 'r', '8', 'le'], '')}```")
@@ -135,6 +134,62 @@ class Utility(commands.Cog):
                 description="⇁ You can only send a suggestion every hour."
             )
 
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    @commands.has_permissions(mention_everyone=True)
+    @commands.bot_has_permissions(mention_everyone=True)
+    async def newsletter(self, ctx, channel: discord.TextChannel, choice, *, message):
+        sender = ctx.author
+        guild = ctx.guild
+        picture = ctx.guild.icon_url_as(size=1024, format=None, static_format="png")
+
+        embed = discord.Embed(
+            color=random.choice(self.bot.embed_colors),
+            title="★ Newsletter",
+            description=f"⇁ {message}"
+        )
+
+        if str(choice) == "everyone":
+            at_everyone = await ctx.send("@everyone")
+            await at_everyone.delete()
+        elif str(choice) == "here":
+            at_here = await ctx.send("@here")
+            await at_here.delete()
+        elif str(choice) == "none":
+            pass
+
+        embed.set_thumbnail(url=picture)
+        embed.set_footer(text=f"— Sent from {sender}", icon_url=ctx.author.avatar_url)
+
+        await ctx.message.delete()
+        await channel.send(embed=embed)
+
+        logger.info(f"Utility | Sent Newsletter: {ctx.author}")
+
+    @newsletter.error
+    async def newsletter_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            embed = discord.Embed(
+                color=random.choice(self.bot.embed_colors),
+                title="★ Invalid Channel",
+                description="⇁ Put a correct channel to announce a message. "
+                            "Example: `l!newsletter #channel <here / everyone / none> <message>`"
+            )
+            await ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(
+                color=random.choice(self.bot.embed_colors),
+                title="★ Required Argument Missing",
+                description="⇁ Please follow the format: `e!newsletter #channel <here / everyone / none> <message>`"
+            )
+            ctx.send(embed=embed)
+        elif isinstance(error, commands.MissingPermissions):
+            embed = discord.Embed(
+                color=self.bot.embed_color,
+                title="★ Permissions Missing",
+                description="⇁ You are missing the correct permissions to run this command."
+            )
             await ctx.send(embed=embed)
 
 
