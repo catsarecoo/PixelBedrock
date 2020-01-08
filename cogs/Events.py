@@ -77,8 +77,8 @@ class Events(commands.Cog):
 
         embed = discord.Embed(
             colour=random.choice(self.bot.embed_colors),
-            title=f"★ The {len(members.members)}th member has joined the server!",
-            description=f"⇁ {random.choice(welcome_messages)}"
+            title=f"★ A new member has joined the server!",
+            description=f"⇁ {random.choice(welcome_messages)}",
         )
 
         await welcome_channel.send(embed=embed)
