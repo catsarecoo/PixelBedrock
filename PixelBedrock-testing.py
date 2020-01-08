@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-PixelBedrock - Official Discord bot for PixelBe
+PixelBedrock - Official Discord bot for PixelBE
 Copyright (C) 2020 TrackRunny
 
 This program is free software: you can redistribute it and/or modify
@@ -30,6 +30,7 @@ line_divide = "\n—————————————————————
 pixelbedrock_testing_token = os.environ.get("pixelbedrock_testing_token")
 
 cogs = [
+    "Events",
     "Information",
     "Utility",
     "Owner"

@@ -19,6 +19,7 @@
 <!-- MODULES HEADER -->
 ## ⇁ Modules (More Coming Soon!)
 
+* Events
 * Information
 * Utility
 * Owner

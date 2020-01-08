@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
+
 import logging
 
 
@@ -24,7 +25,7 @@ logger.setLevel(logging.INFO)
 
 formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
 
-file_handler = logging.FileHandler("./logs/owner.log")
+file_handler = logging.FileHandler("./logs/events.log")
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)

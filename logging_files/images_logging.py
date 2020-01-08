@@ -1,5 +1,5 @@
 """
-PixelBedrock - Official Discord bot for PixelBe
+PixelBedrock - Official Discord bot for PixelBE
 Copyright (C) 2020 TrackRunny
 
 This program is free software: you can redistribute it and/or modify
