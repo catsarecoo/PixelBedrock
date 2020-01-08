@@ -183,7 +183,7 @@ class Utility(commands.Cog):
                 title="★ Required Argument Missing",
                 description="⇁ Please follow the format: `e!newsletter #channel <here / everyone / none> <message>`"
             )
-            ctx.send(embed=embed)
+            await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 color=self.bot.embed_color,
