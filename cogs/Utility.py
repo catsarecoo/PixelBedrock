@@ -122,7 +122,7 @@ class Utility(commands.Cog):
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
                 title="★ Required Argument Missing",
-                description="⇁ Please follow the format: `e!suggest <suggestion>`"
+                description="⇁ Please follow the format: `b!suggest <suggestion>`"
             )
 
             await ctx.send(embed=embed)
@@ -174,14 +174,14 @@ class Utility(commands.Cog):
                 color=random.choice(self.bot.embed_colors),
                 title="★ Invalid Channel",
                 description="⇁ Put a correct channel to announce a message. "
-                            "Example: `l!newsletter #channel <here / everyone / none> <message>`"
+                            "Example: `b!newsletter #channel <here / everyone / none> <message>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
                 title="★ Required Argument Missing",
-                description="⇁ Please follow the format: `e!newsletter #channel <here / everyone / none> <message>`"
+                description="⇁ Please follow the format: `b!newsletter #channel <here / everyone / none> <message>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):
