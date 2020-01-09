@@ -42,7 +42,7 @@ class PixelBedrock(commands.Bot):
         super().__init__(command_prefix="b!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.bot = bot
-        self.embed_colors = (0x03B9FB, 0x44FE77, 0xFF0101)
+        self.embed_colors = (0x02FFFF, 0x81FFC3, 0xF6FF44)
 
         self.load_extension('jishaku')
         self.remove_command('help')

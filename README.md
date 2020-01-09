@@ -2,7 +2,7 @@
 # ★ PixelBedrock
 
 <!-- PICTURE -->
-<img align="right" src="https://i.imgur.com/rK2Lo4q.png" width=25%>
+<img align="right" src="https://i.imgur.com/SU3uqrQ.png" width=30%>
 
 <!-- BADGES -->
 ![Discord.py Version](https://img.shields.io/badge/discord.py-1.2.5-blue?style=flat-square)
