@@ -116,6 +116,7 @@ class Utility(commands.Cog):
 
         await message.add_reaction("👍")
         await message.add_reaction("👎")
+        await message.add_reaction("🤷‍♂️")
 
         logger.info(f"Utility | Sent Suggestion: {ctx.author} | Suggestion: {suggestion}")
 
