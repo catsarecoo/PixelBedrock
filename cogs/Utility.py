@@ -47,9 +47,12 @@ class Utility(commands.Cog):
         logger.info(f"Sent Uptime: {ctx.author}")
 
     @commands.command()
-    async def server(self, ctx, server="play.pixelbe.cf", port=19132):
+    async def server(self, ctx):
+        server = "play.pixelbe.cf"
+        port = 19132
+
         try:
-            srv = MinecraftServer(f"{server}", int(port))
+            srv = MinecraftServer(f"{server}", port)
             motd = srv.query()
             players_string = ', '.join(str(p) for p in motd.players.names)
 
