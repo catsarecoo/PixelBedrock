@@ -12,7 +12,7 @@
 <!-- KEY INFORMATION HEADER -->
 ## ⇁ Bot Information
 
-* Custom Discord bot for PixelBe MCBE server.
+* Custom Discord bot for PixelBE MCBE server.
 * Activity being developed on.
 * At least 2 commits each week.
 
