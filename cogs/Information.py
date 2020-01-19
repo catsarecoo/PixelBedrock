@@ -73,8 +73,8 @@ class Information(commands.Cog):
 
         logger.info(f"information | Sent Help: {ctx.author}")
 
-    @commands.command(aliases=["help", "cmds"])
-    async def commands(self, ctx):
+    @commands.command(aliases=["commands", "cmds"])
+    async def help(self, ctx):
         picture = ctx.guild.icon_url_as(size=1024, format=None, static_format="png")
         embed = discord.Embed(
             color=random.choice(self.bot.embed_colors),
@@ -82,7 +82,7 @@ class Information(commands.Cog):
         )
         embed.set_thumbnail(url=picture)
 
-        information = "`b!commands`, `b!about`"
+        information = "`b!commands`, `b!about`, `b!vote`"
         utility = "`b!uptime`, `b!server`, `b!suggest`, `b!newsletter`"
 
         embed.add_field(name="⇁ Information Commands", inline=False, value=information)
@@ -91,6 +91,19 @@ class Information(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Information | Sent Commands: {ctx.author}")
+
+    @commands.command()
+    async def vote(self, ctx):
+        vote_link = "[**here**](http://bit.ly/pixelbeVote)"
+        embed = discord.Embed(
+            color=random.choice(self.bot.embed_colors),
+            title="★ Vote For PixelBE",
+            description=f"⇁ Please vote {vote_link}, you can vote every 24 hours."
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Information | Sent Vote: {ctx.author}")
 
 
 def setup(bot):
