@@ -42,7 +42,7 @@ class Information(commands.Cog):
 
         source_code = "[**Open source**](https://github.com/TrackRunny/PixelBedrock)"
         picture = ctx.guild.icon_url_as(size=1024, format=None, static_format="png")
-        emoji = "<:github:662426678907240468>"
+        emoji = "<:github:668717565031219222>"
 
         stats = f"```" \
                 f"• CPU: {cpu}%" \
