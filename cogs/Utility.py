@@ -100,7 +100,7 @@ class Utility(commands.Cog):
 
         embed = discord.Embed(
             color=random.choice(self.bot.embed_colors),
-            title=f"★ New Suggestion From: {ctx.author}",
+            title=f"★ New Suggestion By: {ctx.author}",
             description=f"⇁ Suggestion: `{suggestion}`"
         )
         embed.set_thumbnail(url=picture)
@@ -164,7 +164,7 @@ class Utility(commands.Cog):
             pass
 
         embed.set_thumbnail(url=picture)
-        embed.set_footer(text=f"— Sent from {sender}", icon_url=ctx.author.avatar_url)
+        embed.set_footer(text=f"— Sent by {sender}", icon_url=ctx.author.avatar_url)
 
         await ctx.message.delete()
         await channel.send(embed=embed)
