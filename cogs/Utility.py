@@ -66,7 +66,7 @@ class Utility(commands.Cog):
             embed.add_field(name="⇁ Main Map", inline=False, value=f"```{motd.map}```")
             embed.add_field(name="⇁ Server Software", inline=True, value=f"```{motd.software.brand}```")
             embed.add_field(name="⇁ Supported Version(s)", inline=False, value=f"```{motd.software.version}```")
-            embed.add_field(name="⇁ MOTD", inline=False, value=f"```{motd_format(motd.motd, ['Â', '§', 'b', 'r', 'e' '8', 'le'], '')}```")
+            embed.add_field(name="⇁ MOTD", inline=False, value=f"```{motd_format(motd.motd, ['§e', 'l', 'Â', '§', 'b', 'r', '8', 'le'], '')}```")
 
             if not len(motd.players.names):
                 embed.add_field(name="⇁ Player Names", inline=False,
