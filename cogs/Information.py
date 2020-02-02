@@ -53,8 +53,8 @@ class Information(commands.Cog):
                 f"```"
 
         bot_info = f"```" \
-                   f"• LIBRARY VERSION: DISCORD.PY VERSION 1.2.5" \
-                   f"\n• PYTHON VERSION: 3.7.5     " \
+                   f"• LIBRARY VERSION: DISCORD.PY VERSION 1.3.1" \
+                   f"\n• PYTHON VERSION: 3.7.6     " \
                    f"```"
 
         embed = discord.Embed(
