@@ -1,20 +1,20 @@
-"""
-PixelBedrock - Official Discord bot for PixelBE
-Copyright (C) 2020 TrackRunny
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-"""
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# PixelBedrock - Official Discord bot for PixelBE                           #
+# Copyright (C) 2019-2020 TrackRunny                                        #
+#                                                                           #
+# This program is free software: you can redistribute it and/or modify      #
+# it under the terms of the GNU General Public License as published by      #
+# the Free Software Foundation, either version 3 of the License, or         #
+# (at your option) any later version.                                       #
+#                                                                           #
+# This program is distributed in the hope that it will be useful,           #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of            #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             #
+# GNU General Public License for more details.                              #
+#                                                                           #
+# You should have received a copy of the GNU General Public License         #
+# along with this program. If not, see <https://www.gnu.org/licenses/>.     #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import datetime
 import random
@@ -47,9 +47,12 @@ class Utility(commands.Cog):
         logger.info(f"Sent Uptime: {ctx.author}")
 
     @commands.command()
-    async def server(self, ctx, server="play.pixelbe.cf", port=19132):
+    async def server(self, ctx):
+        server = "play.pixelbe.cf"
+        port = 19132
+
         try:
-            srv = MinecraftServer(f"{server}", int(port))
+            srv = MinecraftServer(f"{server}", port)
             motd = srv.query()
             players_string = ', '.join(str(p) for p in motd.players.names)
 
@@ -63,7 +66,7 @@ class Utility(commands.Cog):
             embed.add_field(name="⇁ Main Map", inline=False, value=f"```{motd.map}```")
             embed.add_field(name="⇁ Server Software", inline=True, value=f"```{motd.software.brand}```")
             embed.add_field(name="⇁ Supported Version(s)", inline=False, value=f"```{motd.software.version}```")
-            embed.add_field(name="⇁ MOTD", inline=False, value=f"```{motd_format(motd.motd, ['Â', '§', 'b', 'r', '8', 'le'], '')}```")
+            embed.add_field(name="⇁ MOTD", inline=False, value=f"```{motd_format(motd.motd, ['§e', 'l', 'Â', '§', 'b', 'r', '8', 'le'], '')}```")
 
             if not len(motd.players.names):
                 embed.add_field(name="⇁ Player Names", inline=False,
@@ -97,7 +100,7 @@ class Utility(commands.Cog):
 
         embed = discord.Embed(
             color=random.choice(self.bot.embed_colors),
-            title=f"★ New Suggestion From: {ctx.author}",
+            title=f"★ New Suggestion By: {ctx.author}",
             description=f"⇁ Suggestion: `{suggestion}`"
         )
         embed.set_thumbnail(url=picture)
@@ -113,6 +116,7 @@ class Utility(commands.Cog):
 
         await message.add_reaction("👍")
         await message.add_reaction("👎")
+        await message.add_reaction("🤷‍♂️")
 
         logger.info(f"Utility | Sent Suggestion: {ctx.author} | Suggestion: {suggestion}")
 
@@ -122,7 +126,7 @@ class Utility(commands.Cog):
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
                 title="★ Required Argument Missing",
-                description="⇁ Please follow the format: `e!suggest <suggestion>`"
+                description="⇁ Please follow the format: `b!suggest <suggestion>`"
             )
 
             await ctx.send(embed=embed)
@@ -160,7 +164,7 @@ class Utility(commands.Cog):
             pass
 
         embed.set_thumbnail(url=picture)
-        embed.set_footer(text=f"— Sent from {sender}", icon_url=ctx.author.avatar_url)
+        embed.set_footer(text=f"— Sent by {sender}", icon_url=ctx.author.avatar_url)
 
         await ctx.message.delete()
         await channel.send(embed=embed)
@@ -174,14 +178,14 @@ class Utility(commands.Cog):
                 color=random.choice(self.bot.embed_colors),
                 title="★ Invalid Channel",
                 description="⇁ Put a correct channel to announce a message. "
-                            "Example: `l!newsletter #channel <here / everyone / none> <message>`"
+                            "Example: `b!newsletter #channel <here / everyone / none> <message>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 color=random.choice(self.bot.embed_colors),
                 title="★ Required Argument Missing",
-                description="⇁ Please follow the format: `e!newsletter #channel <here / everyone / none> <message>`"
+                description="⇁ Please follow the format: `b!newsletter #channel <here / everyone / none> <message>`"
             )
             await ctx.send(embed=embed)
         elif isinstance(error, commands.MissingPermissions):

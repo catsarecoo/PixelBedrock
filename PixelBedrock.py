@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 
-"""
-PixelBedrock - Official Discord bot for PixelBE
-Copyright (C) 2020 TrackRunny
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-"""
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# PixelBedrock - Official Discord bot for PixelBE                           #
+# Copyright (C) 2019-2020 TrackRunny                                        #
+#                                                                           #
+# This program is free software: you can redistribute it and/or modify      #
+# it under the terms of the GNU General Public License as published by      #
+# the Free Software Foundation, either version 3 of the License, or         #
+# (at your option) any later version.                                       #
+#                                                                           #
+# This program is distributed in the hope that it will be useful,           #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of            #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             #
+# GNU General Public License for more details.                              #
+#                                                                           #
+# You should have received a copy of the GNU General Public License         #
+# along with this program. If not, see <https://www.gnu.org/licenses/>.     #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import os
 from datetime import datetime
@@ -42,7 +42,7 @@ class PixelBedrock(commands.Bot):
         super().__init__(command_prefix="b!", owner_id=546812331213062144, reconnect=True, case_insensitive=False)
 
         self.bot = bot
-        self.embed_colors = (0x03B9FB, 0x44FE77, 0xFF0101)
+        self.embed_colors = (0x02FFFF, 0x81FFC3, 0xF6FF44)
 
         self.load_extension('jishaku')
         self.remove_command('help')

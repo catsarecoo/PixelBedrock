@@ -1,20 +1,20 @@
-"""
-PixelBedrock - Official Discord bot for PixelBE
-Copyright (C) 2020 TrackRunny
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-"""
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# PixelBedrock - Official Discord bot for PixelBE                           #
+# Copyright (C) 2019-2020 TrackRunny                                        #
+#                                                                           #
+# This program is free software: you can redistribute it and/or modify      #
+# it under the terms of the GNU General Public License as published by      #
+# the Free Software Foundation, either version 3 of the License, or         #
+# (at your option) any later version.                                       #
+#                                                                           #
+# This program is distributed in the hope that it will be useful,           #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of            #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             #
+# GNU General Public License for more details.                              #
+#                                                                           #
+# You should have received a copy of the GNU General Public License         #
+# along with this program. If not, see <https://www.gnu.org/licenses/>.     #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import random
 
@@ -42,7 +42,7 @@ class Information(commands.Cog):
 
         source_code = "[**Open source**](https://github.com/TrackRunny/PixelBedrock)"
         picture = ctx.guild.icon_url_as(size=1024, format=None, static_format="png")
-        emoji = "<:github:662426678907240468>"
+        emoji = "<:github:668717565031219222>"
 
         stats = f"```" \
                 f"• CPU: {cpu}%" \
@@ -53,8 +53,8 @@ class Information(commands.Cog):
                 f"```"
 
         bot_info = f"```" \
-                   f"• LIBRARY VERSION: DISCORD.PY VERSION 1.2.5" \
-                   f"\n• PYTHON VERSION: 3.7.5     " \
+                   f"• LIBRARY VERSION: DISCORD.PY VERSION 1.3.1" \
+                   f"\n• PYTHON VERSION: 3.7.6     " \
                    f"```"
 
         embed = discord.Embed(
@@ -73,8 +73,8 @@ class Information(commands.Cog):
 
         logger.info(f"information | Sent Help: {ctx.author}")
 
-    @commands.command(aliases=["help", "cmds"])
-    async def commands(self, ctx):
+    @commands.command(aliases=["commands", "cmds"])
+    async def help(self, ctx):
         picture = ctx.guild.icon_url_as(size=1024, format=None, static_format="png")
         embed = discord.Embed(
             color=random.choice(self.bot.embed_colors),
@@ -82,7 +82,7 @@ class Information(commands.Cog):
         )
         embed.set_thumbnail(url=picture)
 
-        information = "`b!commands`, `b!about`"
+        information = "`b!commands`, `b!about`, `b!vote`"
         utility = "`b!uptime`, `b!server`, `b!suggest`, `b!newsletter`"
 
         embed.add_field(name="⇁ Information Commands", inline=False, value=information)
@@ -91,6 +91,19 @@ class Information(commands.Cog):
         await ctx.send(embed=embed)
 
         logger.info(f"Information | Sent Commands: {ctx.author}")
+
+    @commands.command()
+    async def vote(self, ctx):
+        vote_link = "[**here**](http://bit.ly/pixelbeVote)"
+        embed = discord.Embed(
+            color=random.choice(self.bot.embed_colors),
+            title="★ Vote For PixelBE",
+            description=f"⇁ Please vote {vote_link}, you can vote every 24 hours."
+        )
+
+        await ctx.send(embed=embed)
+
+        logger.info(f"Information | Sent Vote: {ctx.author}")
 
 
 def setup(bot):
