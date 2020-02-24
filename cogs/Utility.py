@@ -113,8 +113,9 @@ class Utility(commands.Cog):
 
         await ctx.send(embed=embed2)
         message = await channel.send(embed=embed)
-        heckyea = "<yes:681400031311560714>"
-        fuckno = "<no:681400199444168720>"
+                            
+        yes = "<yes:681400031311560714>"
+        no = "<no:681400199444168720>"
 
         await message.add_reaction(f" {heckyea} ")
         await message.add_reaction(f" {fuckno} ")
