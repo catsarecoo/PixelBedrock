@@ -113,10 +113,11 @@ class Utility(commands.Cog):
 
         await ctx.send(embed=embed2)
         message = await channel.send(embed=embed)
+        heckyea = "<yes:681400031311560714>"
+        fuckno = "<no:681400199444168720>"
 
-        await message.add_reaction("👍")
-        await message.add_reaction("👎")
-        await message.add_reaction("🤷‍♂️")
+        await message.add_reaction(f" {heckyea} ")
+        await message.add_reaction(f" {fuckno} ")
 
         logger.info(f"Utility | Sent Suggestion: {ctx.author} | Suggestion: {suggestion}")
 
@@ -151,7 +152,7 @@ class Utility(commands.Cog):
         embed = discord.Embed(
             color=random.choice(self.bot.embed_colors),
             title="★ Newsletter",
-            description=f"⇁ {message}"
+            description=f"{message}"
         )
 
         if str(choice) == "everyone":
