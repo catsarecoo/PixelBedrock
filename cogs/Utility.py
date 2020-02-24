@@ -117,8 +117,8 @@ class Utility(commands.Cog):
         yes = "<yes:681400031311560714>"
         no = "<no:681400199444168720>"
 
-        await message.add_reaction(f" {heckyea} ")
-        await message.add_reaction(f" {fuckno} ")
+        await message.add_reaction(f"{yes}")
+        await message.add_reaction(f"{no}")
 
         logger.info(f"Utility | Sent Suggestion: {ctx.author} | Suggestion: {suggestion}")
 
