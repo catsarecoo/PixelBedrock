@@ -114,8 +114,8 @@ class Utility(commands.Cog):
         await ctx.send(embed=embed2)
         message = await channel.send(embed=embed)
                             
-        yes = "<yes:681400031311560714>"
-        no = "<no:681400199444168720>"
+        yes = "<:yes:681020152598364163>"
+        no = "<:no:681020152984502293>"
 
         await message.add_reaction(f"{yes}")
         await message.add_reaction(f"{no}")
